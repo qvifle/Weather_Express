@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <title>Weather</title>
+</head>
+
+<body>
+  <header>
+    <h2 class="logo"><a href="/">Weather.ru</a></h2>
+    <a class="api" target="_blank" href="https://www.weatherapi.com/">Api Docs</a>
+  </header>
+
+  <main>
+
+    <form action="/process-form" method="post">
+      <h1 class="heading">Fill Fields!</h1>
+      <div class="form_wrapper">
+        <div class="input">
+          <label for="city">City</label>
+          <input type="text" name="city" id="city" placeholder="Tyumen">
+        </div>
+        <div class="input">
+          <label for="days">Days</label>
+          <input type="number" aria-valuemax="14" name="days" id="days" placeholder="Max value 14">
+        </div>
+        <button class="ok" type="submit">Ok</button>
+      </div>
+    </form>
+
+    <div class="card_container">
+      <% if (days!=undefined) {%>
+        <% days.map((el)=> {%>
+          <%- include("card", {data: el})%>
+            <% }) %>
+              <% } else { %>
+                <div>
+                  <%= error %>
+                </div>
+                <% } %>
+    </div>
+
+  </main>
+</body>
+
+</html>

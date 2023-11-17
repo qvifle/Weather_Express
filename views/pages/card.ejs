@@ -1,0 +1,23 @@
+<div class="card">
+  <div>
+    <% if (data) { %>
+      <%= data.date.substring(5, 100)%>
+        <% }%>
+  </div>
+  <div>
+    <div>
+      Max temp: <%= data.day.maxtemp_c %>°C
+    </div>
+    <div>
+      Min temp: <%= data.day.mintemp_c %>°C
+    </div>
+    <div>
+      Avg temp: <%= data.day.avgtemp_c %>°C
+    </div>
+  </div>
+  <div>
+    <div>Max wind speed: <%= data.day.maxwind_kph %> kph</div>
+    <div>Chance it'll rain: <%= data.day.daily_chance_of_rain %>%</div>
+    <div>Chance it'll snow: <%= data.day.daily_will_it_snow %>%</div>
+  </div>
+</div>
